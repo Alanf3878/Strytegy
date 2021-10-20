@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Header from "../components/Header"
 import Main from "../components/Main.js"
 import "./index.css"
+import Footer from "../components/Footer"
 
 export const query =graphql`
 query {
@@ -35,9 +36,14 @@ query {
       maingif {
         url
       }
+      dataimg {
+        url
+      }
+      usertext
+      usertitle
     }
   }
-  }
+}
 `
 export default function({ data }){
   const projectdata = data.alldata.projects[0]
@@ -62,7 +68,15 @@ export default function({ data }){
       titlecontainergif = {projectdata.titlecontainergif}
       textcontainergif = {projectdata.textcontainergif}
       containerimg= {projectdata.containerimg.url}
+      containertitle= {projectdata.containertitle}
+      dataimg = {projectdata.dataimg.url}
+      textcontainer= {projectdata.textcontainer}
+      usertext= {projectdata.usertext}
+      usertitle= {projectdata.usertitle}
+      titlecontainerimg = {projectdata.titlecontainerimg}
+      textcontainerimg = {projectdata.textcontainerimg}
       />
+      <Footer/>
     </div>
   )
 }
